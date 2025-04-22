@@ -1,0 +1,44 @@
+[project]
+name = "aws_s3table_query"
+version = "0.1.0"
+description = "AWS Athena query MCP Server for S3 table analytics"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.6.0",
+    "boto3>=1.26.0",
+    "httpx>=0.28.1",
+    "pyyaml>=6.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[project.scripts]
+"aws_s3table_query" = "aws_s3table_query.server:main"
+
+[tool.ruff]
+line-length = 99
+extend-include = ["*.ipynb"]
+exclude = [
+    ".venv",
+    "**/__pycache__",
+    "**/node_modules",
+    "**/dist",
+    "**/build",
+    "**/env",
+    "**/.ruff_cache",
+    "**/.venv",
+    "**/.ipynb_checkpoints"
+]
+force-exclude = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["aws_s3table_query"]
+
+[tool.bandit]
+exclude_dirs = ["venv","tests"]

@@ -1,0 +1,8 @@
+athena:
+  catalog: s3tablescatalog/images-s3-table-engine
+  database: aws_s3_metadata
+  table: s3metadata_imagebucket_us_east_1
+  output_location: s3://aws-logs-284367710968-us-east-1/
+
+aws:
+  region: us-east-1
